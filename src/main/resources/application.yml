@@ -1,0 +1,40 @@
+
+server:
+  port: 8000
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+    
+spring:
+  mvc:
+    view:
+      # JSP \uC5F0\uACB0\uC744 \uC704\uD55C \uD3F4\uB354 path \uC124\uC815 
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+      
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog?serverTimezone=Asia/Seoul
+    username: root
+    password: 1234
+    
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: create # update, none ... \uD14C\uC774\uBE14\uC744 \uC0C8\uB85C \uB9CC\uB4E0\uB2E4. 
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        # \uB124\uC774\uBC0D \uC804\uB7B5
+      use-new-id-generator-mappings: false # JPA\uAC00 \uC0AC\uC6A9\uD558\uB294 \uAE30\uBCF8 \uB118\uBC84\uB9C1 \uC804\uB7B5
+    show-sql: true # sql \uC0DD\uC131 \uCF54\uB4DC \uBCF4\uC5EC\uC90C
+    properties:
+      hibernate.format_sql: true
+
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+    
+   
